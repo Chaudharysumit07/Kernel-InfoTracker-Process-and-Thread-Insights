@@ -1,4 +1,4 @@
-## Kernel-InfoTracker-Process-and-Thread-Insights
+# Kernel-InfoTracker-Process-and-Thread-Insights
 Designed a Character device driver and integrated sysfs for efficient access to process attributes such as ID, priority, command name, parent ID, context switches, as well as thread count, open files, and max stack usage.
 
 
@@ -7,7 +7,7 @@ Character Device: /dev/cs614_device
 Sysfs Directory: /sys/kernel/cs614_sysfs
 Sysfs File: /sys/kernel/cs614_sysfs/cs614_value
 
-# Part 1: Single Process Access
+## Part 1: Single Process Access
 Objective: Implement a character driver that supports the following functionalities for a single process.
 
 Supported Commands:
@@ -22,14 +22,14 @@ Read operation on /dev/cs614_device fetches the result based on the command.
 Commands beyond '7' return -EINVAL.
 The module assumes a single process uses the driver at any given time.
 
-# Part 2: Multiprocess Access
+## Part 2: Multiprocess Access
 Objective: Extend the driver to support multiple processes simultaneously, ensuring correct results even with interleaved operations.
 
 Key Features:
 Handles simultaneous writes and reads from multiple processes.
 Ensures that each process receives the correct result for its specific command.
 
-# Part 3: Multithreaded Access
+## Part 3: Multithreaded Access
 Objective: Extend the driver to support multithreaded access with additional functionalities.
 
 Supported Commands:
